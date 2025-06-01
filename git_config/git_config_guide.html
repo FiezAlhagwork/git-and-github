@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>git config شرح</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="section">
+        <h1>🧠 أولًا: ما هو git config؟</h1>
+        <p><code>git config</code> هو الأمر الذي يُستخدم لإعداد وضبط إعدادات Git مثل اسم المستخدم، البريد الإلكتروني، محرر النصوص الافتراضي، طريقة عرض النتائج، والمزيد.</p>
+        <p>يُمكنك ضبط هذه الإعدادات على 3 مستويات:</p>
+        <table>
+            <tr>
+                <th>المستوى</th>
+                <th>التأثير</th>
+                <th>مكان الحفظ</th>
+            </tr>
+            <tr>
+                <td>Local</td>
+                <td>خاص بمشروع معين فقط</td>
+                <td>داخل ملف .git/config</td>
+            </tr>
+            <tr>
+                <td>Global</td>
+                <td>لجميع المشاريع للمستخدم الحالي</td>
+                <td>في ملف ~/.gitconfig</td>
+            </tr>
+            <tr>
+                <td>System</td>
+                <td>لجميع المستخدمين في الجهاز</td>
+                <td>في /etc/gitconfig</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ الصيغة العامة للأمر:</h2>
+        <p><code>git config [options] &lt;key&gt; &lt;value&gt;</code></p>
+        <p>مثال:</p>
+        <code>git config --global user.name "Faez Alhaj"</code><br>
+        <code>git config --global user.email "faez@example.com"</code>
+    </div>
+
+    <div class="section">
+        <h2>🔍 كيف أتحقق من القيم الحالية؟</h2>
+        <h3>عرض كل الإعدادات:</h3>
+        <code>git config --list</code>
+
+        <h3>عرض قيمة إعداد معين:</h3>
+        <code>git config user.name</code><br>
+        <code>git config --global user.email</code>
+    </div>
+
+    <div class="section">
+        <h2>✏️ كيف أعدل القيم يدويًا باستخدام المحرر؟</h2>
+        <p>لفتح ملف الإعدادات العالمي وتعديله يدويًا:</p>
+        <code>git config --global --edit</code>
+        <div class="note">
+            🔹 هذا الأمر سيفتح ملف <code>~/.gitconfig</code> باستخدام المحرر الافتراضي (مثل nano أو vim)، ويمكنك تعديل القيم مباشرة.
+        </div>
+        <p>مثال على محتوى <code>~/.gitconfig</code>:</p>
+        <pre><code>[user]
+    name = Faez Alhaj
+    email = faez@example.com
+[core]
+    editor = code --wait</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>🆘 ماذا يفعل git help config؟</h2>
+        <p>هذا الأمر يعرض مستند المساعدة الرسمي الخاص بـ Git لإعدادات config.</p>
+        <code>git help config</code>
+        <div class="note">
+            🔹 ستحصل على شرح لجميع الإعدادات الممكنة مثل:<br>
+            core.editor، user.name، alias، color.ui، وغيرها...
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🧪 مثال عملي كامل:</h2>
+        <pre><code>git config --global user.name "Faez Alhaj"
+git config --global user.email "faez@example.com"
+git config user.name
+git config --global --edit
+git config --list</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>✅ ملاحظات هامة:</h2>
+        <ul>
+            <li>إذا لم تضف <code>--global</code>، فإن Git سيُضيف الإعداد فقط للمشروع الحالي.</li>
+            <li>يمكنك تعديل أي إعداد مثل المحرر الافتراضي باستخدام:</li>
+        </ul>
+        <code>git config --global core.editor "code --wait"</code>
+    </div>
+</body>
+</html>
