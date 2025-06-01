@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>دليل Git و GitHub</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <h1>ما هو Git؟</h1>
@@ -176,7 +176,7 @@
       <h2>📦 ربط المستودع بمشروع محلي</h2>
       <pre><code>cd my-project-folder
 git init
-git remote add origin https://github.com/username/repo-name.git
+git remote add origin link repo
 git add *
 git commit -m "Initial commit"
 git push -u origin main</code></pre>
@@ -188,7 +188,7 @@ git push -u origin main</code></pre>
 
     <div class="section">
       <h2>🔁 استنساخ مستودع</h2>
-      <pre><code>git clone https://github.com/username/repo-name.git</code></pre>
+      <pre><code>git clone link repo</code></pre>
     </div>
 
     <div class="section">
@@ -251,6 +251,104 @@ git add folder-name/ # لإضافة مجلد</code></pre>
       <p>
         <strong>📂 مكان الملف:</strong> في الجذر، ويُعرض تلقائيًا على GitHub.
       </p>
+    </div>
+
+    <div class="section">
+      <h2>ما هو git push؟</h2>
+      <p>
+        git push هو الأمر الذي يُستخدم لإرسال التعديلات التي تم حفظها
+        (committed) في المشروع المحلي إلى المستودع البعيد على GitHub أو أي منصة
+        Git.
+      </p>
+      <h3>📌 متى تستخدم git push؟</h3>
+      <ul>
+        <li>تعديل أو إنشاء ملفات في مشروعك.</li>
+        <li>
+          تنفيذ <code>git add</code> لإضافة الملفات إلى منطقة الانتظار
+          (Staging).
+        </li>
+        <li>تنفيذ <code>git commit</code> لحفظ التعديلات.</li>
+      </ul>
+      <h3>🧱 الصيغة الأساسية:</h3>
+      <pre><code>git push &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+      <p>
+        <strong>remote-name:</strong> عادة ما تكون origin.<br />
+        <strong>branch-name:</strong> مثل main أو master.
+      </p>
+      <h3>🧠 مثال عملي:</h3>
+      <pre><code>git push origin main</code></pre>
+      <p>يعني: ادفع التعديلات على فرع main إلى المستودع البعيد origin.</p>
+      <h3>🚀 الخطوات الكاملة لدفع التعديلات:</h3>
+      <pre><code>cd my-project-folder
+git add .
+git commit -m "أضفت صفحة جديدة"
+git push origin main</code></pre>
+      <div class="note">
+        🔐 قد يُطلب منك تسجيل الدخول — يُفضل استخدام SSH أو GitHub CLI.
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>🧵 كيف أعرف اسم الفرع الحالي؟</h2>
+      <pre><code>git branch</code></pre>
+      <p>الفرع الحالي سيكون عليه علامة *.</p>
+      <h3>🔍 لمعرفة جميع الفروع البعيدة:</h3>
+      <pre><code>git branch -r</code></pre>
+      <p>سيظهر مثل:</p>
+      <pre><code>origin/main
+origin/dev
+origin/feature/navbar</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>🔁 ما هو Fork؟</h2>
+      <p>
+        <strong>Fork</strong> هو إنشاء نسخة من مستودع GitHub في حسابك لتعديلها
+        بحرية دون التأثير على النسخة الأصلية.
+      </p>
+      <h3>🎯 متى تستخدم Fork؟</h3>
+      <ul>
+        <li>للمساهمة في مشروع لا تملك صلاحية عليه.</li>
+        <li>لتجربة تعديلات دون المساس بالأصل.</li>
+      </ul>
+      <h3>✅ خطوات عمل Fork:</h3>
+      <ul>
+        <li>اذهب إلى المستودع على GitHub.</li>
+        <li>اضغط على زر <strong>Fork</strong>.</li>
+        <li>ستحصل على نسخة باسم: <code>your-username/project-name</code></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>👨‍👩‍👧‍👦 كيف تجعل شخص يشاركك المشروع؟</h2>
+      <h3>✅ إذا كنت صاحب المشروع:</h3>
+      <ul>
+        <li>افتح المشروع على GitHub.</li>
+        <li>اذهب إلى <strong>Settings → Collaborators</strong>.</li>
+        <li>أضف اسم المستخدم وادعُه.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔄 ما هو git pull؟</h2>
+      <p>هو أمر لجلب آخر التعديلات من المستودع البعيد إلى المستودع المحلي.</p>
+      <h3>✅ الصيغة:</h3>
+      <pre><code>git pull origin branch-name</code></pre>
+      <h3>🧠 مثال:</h3>
+      <pre><code>git pull origin main</code></pre>
+      <p>يُستخدم لمزامنة التعديلات من الزملاء.</p>
+    </div>
+
+    <div class="section">
+      <h2>🧠 مثال عملي لتعاون شخصين:</h2>
+      <h3>🧑‍💻 الشخص الأول:</h3>
+      <pre><code>git clone link repo
+cd project
+git add .
+git commit -m "إضافة ملف جديد"
+git push origin main</code></pre>
+      <h3>👩‍💻 الشخص الثاني:</h3>
+      <pre><code>git pull origin main</code></pre>
     </div>
   </body>
 </html>
