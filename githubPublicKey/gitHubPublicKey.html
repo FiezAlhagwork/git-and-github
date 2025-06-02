@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>إنشاء GitHub Public Key</title>
+  <style>
+
+  </style>
+
+
+<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+  <h1>🧠 ما هو GitHub Public Key؟</h1>
+  <div class="section">
+    <p>GitHub Public Key هو جزء من آلية المصادقة (SSH) التي تتيح لك الاتصال بـ GitHub بطريقة آمنة دون الحاجة إلى إدخال كلمة المرور في كل مرة تقوم فيها بـ <code>push</code> أو <code>clone</code>.</p>
+  </div>
+
+  <h2>🛠️ خطوات إنشاء المفتاح وتجربة الاتصال</h2>
+
+  <div class="section">
+    <h3>✅ 1. التحقق من وجود مفتاح SSH مسبقًا</h3>
+    <pre><code>ls -al ~/.ssh</code></pre>
+    <p>إذا ظهرت لك ملفات مثل <code>id_rsa.pub</code> أو <code>id_ed25519.pub</code> فأنت تملك مفاتيح SSH بالفعل.</p>
+  </div>
+
+  <div class="section">
+    <h3>✅ 2. إنشاء مفتاح SSH جديد</h3>
+    <pre><code>ssh-keygen -t ed25519 -C "faez@example.com"</code></pre>
+    <p>↪️ اضغط Enter لاستخدام المسار الافتراضي ثم Enter مرتين لتجاوز كلمة المرور (اختياري).</p>
+  </div>
+
+  <div class="section">
+    <h3>✅ 3. عرض المفتاح ونسخه</h3>
+    <pre><code>cat ~/.ssh/id_ed25519.pub</code></pre>
+    <p>انسخ السطر بالكامل الذي يبدأ بـ <code>ssh-ed25519</code>.</p>
+  </div>
+
+  <div class="section">
+    <h3>✅ 4. ربط المفتاح مع GitHub</h3>
+    <p>انتقل إلى: <a href="https://github.com/settings/keys" target="_blank">GitHub SSH Settings</a></p>
+    <ul>
+      <li>📌 في <strong>Title</strong>: اكتب اسمًا مثل My Laptop Key</li>
+      <li>📌 في <strong>Key</strong>: الصق المفتاح الذي نسخته</li>
+      <li>اضغط على <strong>Add SSH key</strong></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>✅ 5. تجربة الاتصال مع GitHub</h3>
+    <pre><code>ssh -T git@github.com</code></pre>
+    <p>قد تظهر رسالة للتحقق من الهوية، اكتب <code>yes</code> إذا ظهرت.</p>
+    <p>إذا تم الاتصال بنجاح ستظهر:</p>
+    <pre><code>Hi faez! You've successfully authenticated, but GitHub does not provide shell access.</code></pre>
+  </div>
+
+  <div class="section">
+    <h3>📌 ملاحظات إضافية</h3>
+    <p><strong>لمعرفة نوع الاتصال:</strong></p>
+    <pre><code>git remote -v</code></pre>
+    <ul>
+      <li>إذا كان الشكل: <code>git@github.com:username/repo.git</code> فأنت تستخدم SSH</li>
+      <li>إذا كان: <code>https://github.com/username/repo.git</code> فأنت تستخدم HTTPS</li>
+    </ul>
+
+    <p><strong>🔁 لتحويل HTTPS إلى SSH:</strong></p>
+    <pre><code>git remote set-url origin git@github.com:username/repo.git</code></pre>
+  </div>
+
+</body>
+</html>
