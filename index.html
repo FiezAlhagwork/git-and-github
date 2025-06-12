@@ -356,5 +356,93 @@ git push origin main</code></pre>
       <h3>👩‍💻 الشخص الثاني:</h3>
       <pre><code>git pull origin main</code></pre>
     </div>
+
+    <h1>🛠️ رفع مشروع موجود مسبقًا إلى GitHub</h1>
+
+    <div class="section">
+      <h2>✅ 1. تأكد أن المشروع داخل مجلد على جهازك</h2>
+      <p>مثال:</p>
+      <pre><code>~/projects/my-awesome-project</code></pre>
+      <p>ادخل إلى المجلد من الطرفية:</p>
+      <pre><code>cd ~/projects/my-awesome-project</code></pre>
+    </div>
+
+    <div class="section">
+      <h2>✅ 2. تهيئة المشروع كمستودع Git</h2>
+      <pre><code>git init</code></pre>
+      <p>🔹 هذا الأمر ينشئ مجلد <code>.git</code> ويجعل المجلد مشروع Git.</p>
+    </div>
+
+    <div class="section">
+      <h2>✅ 3. إضافة الملفات</h2>
+      <pre><code>git add .</code></pre>
+      <p>🔹 يضيف جميع الملفات إلى مرحلة التتبع (staging).</p>
+    </div>
+
+    <div class="section">
+      <h2>✅ 4. إنشاء أول commit</h2>
+      <pre><code>git commit -m "First commit"</code></pre>
+      <p>✍️ يلتقط لقطة من المشروع الحالي مع رسالة.</p>
+    </div>
+
+    <div class="section">
+      <h2>✅ 5. إنشاء مستودع جديد على GitHub</h2>
+      <p>
+        افتح الرابط:
+        <a href="https://github.com/new" target="_blank"
+          >https://github.com/new</a
+        >
+      </p>
+      <ul>
+        <li>📌 اسم المشروع: <strong>my-awesome-project</strong></li>
+        <li>📌 لا تضف README أو .gitignore</li>
+        <li>📌 اضغط <strong>Create repository</strong></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>✅ 6. ربط المشروع بـ GitHub</h2>
+      <p>نفذ الأوامر التالية بعد الإنشاء:</p>
+      <pre><code>
+git remote add origin git@github.com:YourUsername/my-awesome-project.git
+git branch -M main
+git push -u origin main
+    </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>📦 مثال عملي كامل:</h2>
+      <pre><code>
+cd ~/projects/my-awesome-project
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin "LINK Repo"
+git branch -M main
+git push -u origin main
+    </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>💡 ملاحظات هامة:</h2>
+      <table>
+        <tr>
+          <th>الأمر</th>
+          <th>الشرح</th>
+        </tr>
+        <tr>
+          <td><code>git init</code></td>
+          <td>تحويل مجلد عادي إلى مستودع Git</td>
+        </tr>
+        <tr>
+          <td><code>git remote add origin</code></td>
+          <td>ربط المشروع بـ GitHub</td>
+        </tr>
+        <tr>
+          <td><code>git push -u origin main</code></td>
+          <td>رفع الملفات إلى GitHub وتحديد الفرع الرئيسي</td>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

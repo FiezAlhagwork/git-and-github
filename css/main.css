@@ -6,6 +6,31 @@ body {
   direction: rtl;
   padding: 2rem;
 }
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 5px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #4a90e2;
+  border-radius: 15px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+  border-radius: 15px;
+}
 h1,
 h2,
 h3 {
@@ -51,21 +76,17 @@ th {
   background: black;
   color: white;
   border-radius: 20px;
-
 }
 .btn a {
   text-underline-offset: none;
-  color:white;
-  font-size: 20px;
+  color: white;
+  font-size: 10px;
   font-weight: 500;
-
 }
 
-
-
-    pre {
-      background-color: #f0f0f0;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
+pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
